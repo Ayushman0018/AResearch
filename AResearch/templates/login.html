@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .horizontalBox img {
+            width:2vw;
+            height:2vw;
+            border-radius: 100%;
+        }
+
+        form {
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap:1vw;
+        }
+        form input {
+            width:30vw;
+            height:6vh;
+            border-radius: 20px;
+            text-indent:2vw;
+            border:none;
+            color:white;
+            background-color: rgb(237,245,243);
+        }
+        form input[type='submit'] {
+            cursor:pointer;
+            text-indent: 0;
+            background-color: rgb(40,180,152);
+            width:15vw;
+        }
+        .slip {
+            display:flex;
+            flex-direction: row;
+            gap:1vw;
+        }
+        .horizontalBox {
+            height:100%;
+            border:1px solid black;
+        }
+        .verticalCard {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap:1vw;
+            background: linear-gradient(to bottom right, rgb(53, 214, 182), rgb(40,180,152), rgb(24, 161, 134));
+            height:100%;
+        }
+        #boxwrap {
+            display:flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            height:40vh;
+            border:1px solid black;
+        }
+        #boxwrap form {
+            padding:2vw;
+        }
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="container" style="height:100vh;">
+        <div id = "boxwrap">
+            <form method="post">
+                {% csrf_token %}
+            <h1>Login to Your Account</h1>
+                <input type="email" name="email" placeholder="Email">
+                <input type="password" name="psw" placeholder="Password">
+                <input type="submit" value="Sign In">
+            </form>
+            <div class="verticalCard" style="padding-left:1vw; padding-right:1vw; color:rgb(8, 21, 78);">
+                <h1>New Here?</h1>
+                <p>Sign up and discover a great amount of opportunities.</p>
+                <a href="{% url 'signup' %}">Sign Up</a>
+            </div>
+        </div>
+        </div>
+    </body>
+    </html>

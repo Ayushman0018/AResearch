@@ -1,0 +1,55 @@
+# Install required packages if not installed
+install.packages("pheatmap")
+install.packages("treemap")
+install.packages("plotly")
+
+# Load necessary libraries
+library(pheatmap)
+library(treemap)
+library(plotly)
+
+# Create the asteroid dataset
+asteroid_data <- data.frame(
+  Name = c("(1036) Ganymed", "(433) Eros", "(3122) Florence", "(1866) Sisyphus", "(4179) Toutatis"),
+  Diameter_km = c(35.6, 16.84, 4.9, 8.5, 2.52),
+  Mass_kg = c(6.5e16, 6.687e15, 7.0e12, 1.7e15, 5.0e12),
+  Semi_Major_Axis_km = c(397936000, 218416000, 264792000, 282744000, 376992000),
+  Closest_Approach_km = c(53856000, 22440000, 7031200, 16456000, 897600)
+)
+
+# 1. Heatmap
+# Remove name for heatmap and normalize data
+asteroid_matrix <- as.matrix(asteroid_data[, -1]) # Exclude the "Name" column
+asteroid_matrix <- scale(asteroid_matrix)         # Normalize data (Z-score standardization)
+
+# Create a heatmap
+pheatmap(asteroid_matrix, labels_row = asteroid_data$Name, 
+         main = "Heatmap of Asteroid Data",
+         color = colorRampPalette(c("navy", "white", "firebrick3"))(50))
+
+# 2. Tree Map
+# Prepare the dataset for the treemap
+treemap_data <- data.frame(
+  Name = asteroid_data$Name,
+  Diameter_km = asteroid_data$Diameter_km,
+  Mass_kg = asteroid_data$Mass_kg
+)
+
+# Create a treemap with diameter and mass
+treemap(treemap_data,
+        index = "Name",         # Names of asteroids as labels
+        vSize = "Diameter_km",  # Size of the rectangles based on diameter
+        vColor = "Mass_kg",     # Color based on the mass of asteroids
+        type = "value",         # Color gradient type
+        title = "Tree Map of Asteroids (Diameter and Mass)",
+        palette = "Blues")
+
+# 3. Interactive Scatter Plot (Mass vs Diameter)
+# Create an interactive scatter plot for Mass vs Diameter
+p <- plot_ly(asteroid_data, x = ~Diameter_km, y = ~Mass_kg, type = 'scatter', mode = 'markers',
+             text = ~Name, marker = list(size = 10, color = 'purple')) %>%
+  layout(title = "Interactive Plot of Mass vs Diameter of Asteroids",
+         xaxis = list(title = "Diameter (km)"),
+         yaxis = list(title = "Mass (kg)"))
+
+

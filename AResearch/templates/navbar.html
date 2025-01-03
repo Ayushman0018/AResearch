@@ -1,0 +1,129 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        
+        <style>
+            html {
+                scroll-behavior: smooth;
+            }
+            *{
+                margin: 0;
+                padding: 0;
+                font-family: 'Raleway', sans-serif;
+            }
+    
+            .container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height:60vh;
+                gap:1vw;
+                margin-bottom:2vw;     
+            }
+            nav, nav ul {
+                display:flex;
+                flex-direction: row;
+                align-items: center;
+                gap:1vw;
+                height:10vh;
+                background:linear-gradient(to right, rgb(46, 94, 255), rgb(35, 85, 250), rgb(46, 94, 255))
+            }
+            
+            nav {
+                justify-content: center;
+                position:sticky;
+                top:0px;
+            }
+            nav ul {
+                list-style: none;
+                width:90vw;
+                justify-content: space-evenly;
+                /* border:2px solid black; */
+            }
+            nav ul li a {
+                text-decoration: none;
+                color:white;
+            }
+    
+            nav ul li a:hover {
+                cursor:pointer;
+                border-bottom: 2px solid white;
+            }
+    
+            .container a {
+                text-decoration: none;
+                padding:1vw 1vw;
+                min-width:2vw;
+                color:white;
+                background-color: rgb(5, 2, 44);
+                border-radius: 5px;
+                transition:background-color 1s ease;
+                margin:1vw;
+            }
+            .container a:hover {
+                cursor:pointer;
+                background-color: blue;
+            }
+            .horizontalBox {
+                display: flex;
+                flex-direction: row;
+                gap:5vw;
+                /* background-color: white; */
+                /* border-radius: 0px 0px 0px 50px; */
+                padding:2vw;
+                min-height:100% !important;
+                /* box-shadow: 0 0 5px black; */
+                align-items: center;
+                justify-content: center;
+            }
+    
+            .horizontalBox p {
+                max-width:35vw;
+                text-align: justify;
+            }
+    
+            #shinyapp {
+                width:70vw;
+                height:70vh;
+            }
+    
+            #dashboard img {
+                height:70vh;
+            }
+    
+            .card {
+                width:40vw;
+                padding:1vw;
+                display:flex;
+                flex-direction: row;
+                gap:1vw;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid grey;
+                transition:background-color 0.5s ease;
+                
+            }
+            .card:hover {
+                background-color: white;
+                box-shadow:0 0 10px grey;
+                cursor:pointer;
+            }
+            .card p {
+                font-family: 'Courier New', Courier, monospace;
+            }
+            .card img {
+                max-width:10vw;
+            }
+        </style>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var result = "{{result}}";
+        if (result) {
+            alert(result);
+        }
+    })
+</script>
