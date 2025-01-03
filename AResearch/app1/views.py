@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from app1.models import *
 from mailjet_rest import Client
 import random
-mail_key = "7a058ff7cfa626c9d7468adc04c97872"
-mail_secret = "47c90d8b45e19132042e46733c44f292"
+mail_key = "MY-MAILJET-PUBLIC-KEY"
+mail_secret = "MY-MAILJET-SECRET-KEY"
 # exchange_rates = stripe.ExchangeRate.list()
 mailjet = Client(auth=(mail_key,mail_secret), version='v3.1')
 # Create your views here.
