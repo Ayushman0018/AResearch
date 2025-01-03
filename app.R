@@ -5,7 +5,7 @@ library(randomForest)
 library(caret)         
 
 
-data <- read.csv("C:/Users/Ayushman Singh/Downloads/NEO Earth Close Approaches.csv")
+data <- read.csv("NEO Earth Close Approaches.csv")
 
 
 data_subset <- head(data, 5)
